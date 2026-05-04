@@ -74,6 +74,108 @@
             color: inherit;
         }
 
+        /* Fixed Sidebar Styling */
+        .tp-fixed-contact {
+            position: fixed;
+            right: 25px;
+            top: 75%;
+            transform: translateY(-50%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tp-fixed-item {
+            width: 55px;
+            height: 55px;
+            background: #273AE2;
+            /* Primary Blue */
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 22px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none !important;
+            position: relative;
+        }
+
+        /* Hover Effects */
+        .tp-fixed-item:hover {
+            transform: translateX(-10px) scale(1.1);
+            background: #ffffff;
+            color: #273AE2;
+            box-shadow: 0 15px 35px rgba(39, 58, 226, 0.4);
+        }
+
+        /* Color Variants */
+        .tp-fixed-item.tp-wa {
+            background-color: #25D366;
+        }
+
+        /* WhatsApp Green */
+        .tp-fixed-item.tp-wa:hover {
+            color: #25D366;
+            background: #ffffff;
+        }
+
+        .tp-fixed-item.tp-mail {
+            background-color: #ea4335;
+        }
+
+        /* Gmail Red */
+        .tp-fixed-item.tp-mail:hover {
+            color: #ea4335;
+            background: #ffffff;
+        }
+
+        /* Modern Tooltips */
+        .tp-fixed-item::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            right: 75px;
+            background: rgba(10, 10, 10, 0.9);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease;
+            pointer-events: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tp-fixed-item:hover::after {
+            opacity: 1;
+            visibility: visible;
+            right: 65px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .tp-fixed-contact {
+                right: 15px;
+            }
+
+            .tp-fixed-item {
+                width: 48px;
+                height: 48px;
+                font-size: 18px;
+            }
+
+            .tp-fixed-item::after {
+                display: none;
+                /* Hide tooltips on mobile for cleaner look */
+            }
+        }
+
         /* ==========================================================================
            TRUEPET HEADER / NAVBAR (SOLID WHITE CORPORATE)
            ========================================================================== */
@@ -2027,6 +2129,28 @@
 </head>
 
 <body>
+    <!-- HTML Structure -->
+    <div class="tp-fixed-contact">
+        <!-- Call Icon -->
+        <a href="tel:+917230099843" class="tp-fixed-item" data-tooltip="Call Now">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <!-- Mail Icon -->
+        <a href="mailto:info@truepet.com" class="tp-fixed-item tp-mail" data-tooltip="Send Email">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <!-- WhatsApp Icon -->
+        <a href="https://wa.me/917230099843" class="tp-fixed-item tp-wa" data-tooltip="WhatsApp Enquiry">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+
+
+
+
 
     <!-- ==========================================================================
          TRUEPET HEADER (NAVBAR)
@@ -2542,10 +2666,10 @@
                     <!-- Right: Square Call & WhatsApp Buttons -->
                     <div class="col-lg-5 text-lg-end tp-cta-anim">
                         <div class="tp-cta-buttons-wrap">
-                            <a href="tel:+919876543210" class="tp-btn-square tp-btn-call" title="Call Us">
+                            <a href="tel:+917777800001" class="tp-btn-square tp-btn-call" title="Call Us">
                                 <i class="fa-solid fa-phone"></i> Call Us
                             </a>
-                            <a href="https://wa.me/919876543210" class="tp-btn-square tp-btn-wa" title="WhatsApp Us">
+                            <a href="https://wa.me/917777800001" class="tp-btn-square tp-btn-wa" title="WhatsApp Us">
                                 <i class="fa-brands fa-whatsapp"></i> WhatsApp Enq
                             </a>
                         </div>
@@ -2682,17 +2806,9 @@
                         <div class="tp-footer-contact-icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="tp-footer-contact-text">
                             <h5>Corporate Office</h5>
-                            <p>210-211, AltF Suncity Success Tower-B, Golf Course Extension Road, Sec-65, Gurugram -
-                                122005, Haryana</p>
-                        </div>
-                    </div>
-                    <div class="tp-footer-contact-item">
-                        <div class="tp-footer-contact-icon"><i class="fa-solid fa-industry"></i></div>
-                        <div class="tp-footer-contact-text">
-                            <h5>Manufacturing Units</h5>
-                            <p><strong>Unit 1:</strong> G1-171 & 172, RIICO Indl. Area, Neemrana, Rajasthan - 301705</p>
-                            <p class="mt-2"><strong>Unit 2:</strong> 563, Industrial Area Pithampur, Sector-3, Dist.
-                                Dhar, MP - 454774</p>
+                            <p><strong>Unit 1 :</strong>True Pet industries Private Limited <br>
+                                Survey no 376, plot no 2a, B-Building, <br>
+                                Karwad, Vapi, Gujarat-296191</p>
                         </div>
                     </div>
                 </div>
@@ -2704,7 +2820,7 @@
                         <div class="tp-footer-contact-icon"><i class="fa-solid fa-phone"></i></div>
                         <div class="tp-footer-contact-text">
                             <h5>Phone Number</h5>
-                            <p>+91-7230099843 / 844</p>
+                            <p>+917777800001</p>
                         </div>
                     </div>
                     <div class="tp-footer-contact-item">
