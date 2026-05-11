@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs | Truepet - Industrial Insights & PET Trends</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- TruePET Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* ==========================================================================
+           BLOG PAGE UNIQUE STYLES (bl-pg-)
+           (Navbar and Footer CSS removed as per instructions)
+           ========================================================================== */
+
+        :root {
+            --tp-color-primary: #273AE2;
+            --tp-color-secondary: #FFFFFF;
+            --tp-color-dark: #0a0a0a;
+            --tp-font-heading: 'Inter', sans-serif;
+            --tp-font-body: 'Manrope', sans-serif;
+            --tp-transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--tp-font-body);
+            background-color: #fff;
+            color: #111;
+            overflow-x: hidden;
+        }
+
+        /* 1. Sexy Blog Hero */
+        .bl-pg-hero {
+            height: 65vh;
+            background-color: #050505;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .bl-pg-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)), url('assets/images/banner/blog-ban.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: 1;
+        }
+
+        .bl-pg-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .bl-pg-hero-tag {
+            font-family: var(--tp-font-heading);
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--tp-color-primary);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: rgb(255, 255, 255);
+            padding: 5px 15px;
+            border-radius: 2px;
+        }
+
+        .bl-pg-hero-title {
+            font-family: var(--tp-font-heading);
+            font-size: 3.8rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        /* 2. Intro Section */
+        .bl-pg-intro {
+            padding: 100px 0 60px;
+            background-color: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .bl-pg-intro-subtitle {
+            font-family: var(--tp-font-heading);
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--tp-color-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .bl-pg-intro-subtitle .line {
+            width: 40px;
+            height: 2px;
+            background-color: var(--tp-color-primary);
+        }
+
+        .bl-pg-intro-title {
+            font-family: var(--tp-font-heading);
+            font-size: 3rem;
+            font-weight: 900;
+            color: #111;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .bl-pg-intro-desc {
+            font-family: var(--tp-font-body);
+            font-size: 1.15rem;
+            color: #555;
+            max-width: 800px;
+            line-height: 1.7;
+        }
+
+        /* 3. Blog Cards Grid */
+        .bl-pg-grid-section {
+            padding: 0 0 130px;
+            background-color: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .bl-pg-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .bl-pg-card {
+            background-color: #fbfbfb;
+            border: 1px solid #eeeeee;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all var(--tp-transition-smooth);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bl-pg-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--tp-color-primary);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+        }
+
+        .bl-pg-card-img {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bl-pg-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .bl-pg-card-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--tp-color-primary);
+            color: #fff;
+            padding: 5px 12px;
+            font-family: var(--tp-font-heading);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .bl-pg-card-body {
+            padding: 35px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bl-pg-card-date {
+            font-size: 13px;
+            font-weight: 600;
+            color: #888;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .bl-pg-card-title {
+            font-family: var(--tp-font-heading);
+            font-size: 20px;
+            font-weight: 800;
+            color: #111;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .bl-pg-card-text {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .bl-pg-read-more {
+            margin-top: auto;
+            font-family: var(--tp-font-heading);
+            font-size: 13px;
+            font-weight: 800;
+            color: #111;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: gap 0.3s ease;
+            text-decoration: none;
+        }
+
+        .bl-pg-card:hover .bl-pg-read-more {
+            color: var(--tp-color-primary);
+            gap: 15px;
+        }
+
+        @media (max-width: 991px) {
+            .bl-pg-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bl-pg-hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .bl-pg-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HTML Structure -->
+    <div class="tp-fixed-contact">
+        <!-- Call Icon -->
+        <a href="tel:+917230099843" class="tp-fixed-item" data-tooltip="Call Now">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <!-- Mail Icon -->
+        <a href="mailto:info@truepet.com" class="tp-fixed-item tp-mail" data-tooltip="Send Email">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <!-- WhatsApp Icon -->
+        <a href="https://wa.me/917230099843" class="tp-fixed-item tp-wa" data-tooltip="WhatsApp Enquiry">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+
+
+
+
+
+    <!-- ==========================================================================
+         TRUEPET HEADER (NAVBAR)
+         ========================================================================== -->
+    <header class="tp-header" id="tp-header">
+        <div class="container-fluid px-4 px-lg-5">
+            <nav class="navbar navbar-expand-lg align-items-center">
+                <a class="navbar-brand tp-navbar-brand" href="index.html">
+                    <img src="assets/images/logo/logo.png" alt="Truepet Logo">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#tp-navbarNav"
+                    aria-controls="tp-navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="tp-navbarNav">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item"><a class="nav-link tp-nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link tp-nav-link" href="about-us.html">About</a></li>
+
+                        <li class="nav-item dropdown tp-dropdown">
+                            <a class="nav-link tp-nav-link dropdown-toggle" href="#products" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                            <ul class="dropdown-menu tp-dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="27-mm-alaska.html">27 MM ALASKA</a></li>
+                                <li><a class="dropdown-item" href="26-22-gme-30-28-pet-perform.html">26/22 GME 30.28</a>
+                                </li>
+                                <li><a class="dropdown-item" href="26-22-gme-30-41-neck-pet-perform.html">26/22 GME
+                                        30.41</a></li>
+                                <li><a class="dropdown-item" href="29-21-mm-ctc-neck-pet-preform.html">29/21 CTC</a>
+                                </li>
+                                <li><a class="dropdown-item" href="28-mm-pco-1881-neck-pet-preform.html">28 MM PCO
+                                        1881</a></li>
+                                <li><a class="dropdown-item" href="28-mm-pco-1810-long-neck-pet-preform.html">28 MM PCO
+                                        1810</a></li>
+                                <li><a class="dropdown-item" href="48-mm-3-start-pet-jar-preform.html">48 MM 3 START</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link tp-nav-link" href="manufacturing.html">Manufacturing</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link tp-nav-link" href="blogs.html">Blogs</a></li>
+                        <li class="nav-item"><a class="nav-link tp-nav-link" href="careers.html">Career</a></li>
+                        <li class="nav-item"><a class="nav-link tp-nav-link" href="contact-us.html">Contact Us</a></li>
+
+                        <li class="nav-item mt-3 mt-lg-0">
+                            <a href="contact-us.html" class="tp-btn-sexy tp-btn-nav-sexy">
+                                <span class="btn-text">Get a Quote</span>
+                                <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="tp-main-wrapper">
+
+        <!-- 1. Sexy Blog Hero -->
+        <section class="bl-pg-hero">
+            <div class="bl-pg-hero-bg"></div>
+            <div class="bl-pg-hero-content">
+                <span class="bl-pg-hero-tag tp-anim-item">Latest Industrial News</span>
+                <h1 class="bl-pg-hero-title tp-anim-item">Industrial <span>Insights</span></h1>
+            </div>
+        </section>
+
+        <!-- 2. Intro Section -->
+        <section class="bl-pg-intro">
+            <div class="container">
+                <div class="bl-pg-reveal">
+                    <div class="bl-pg-intro-subtitle"><span class="line"></span> OUR KNOWLEDGE HUB</div>
+                    <h2 class="bl-pg-intro-title">Expert Perspectives on <br><span>PET Manufacturing Trends</span></h2>
+                    <p class="bl-pg-intro-desc">Stay updated with the latest technological breakthroughs in blow
+                        molding, sustainable packaging solutions, and the future of industrial polymerization.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Blog Cards Grid (3 Cards) -->
+        <section class="bl-pg-grid-section">
+            <div class="container">
+                <div class="bl-pg-grid">
+
+                    <!-- Blog Card 1 -->
+                    <article class="bl-pg-card bl-pg-card-anim">
+                        <div class="bl-pg-card-img">
+                            <div class="bl-pg-card-badge">Technology</div>
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000"
+                                alt="PET Automation">
+                        </div>
+                        <div class="bl-pg-card-body">
+                            <span class="bl-pg-card-date">May 10, 2024</span>
+                            <h3 class="bl-pg-card-title">The Future of Automated Blow Molding Systems</h3>
+                            <p class="bl-pg-card-text">Explaining how high-speed injection molding is revolutionizing
+                                the consistency and technical clarity of PET preforms for global beverage giants.</p>
+                            <a href="#" class="bl-pg-read-more">Read Full Article <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Card 2 -->
+                    <article class="bl-pg-card bl-pg-card-anim">
+                        <div class="bl-pg-card-img">
+                            <div class="bl-pg-card-badge">Sustainability</div>
+                            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=1000"
+                                alt="Eco Packaging">
+                        </div>
+                        <div class="bl-pg-card-body">
+                            <span class="bl-pg-card-date">April 28, 2024</span>
+                            <h3 class="bl-pg-card-title">Sustainable Packaging: A New Era for TruePET</h3>
+                            <p class="bl-pg-card-text">Exploring eco-friendly polymerization processes and water
+                                harvesting techniques that reduce industrial wastage while maintaining quality.</p>
+                            <a href="#" class="bl-pg-read-more">Read Full Article <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Card 3 -->
+                    <article class="bl-pg-card bl-pg-card-anim">
+                        <div class="bl-pg-card-img">
+                            <div class="bl-pg-card-badge">Industry</div>
+                            <img src="https://imgs.search.brave.com/lkOCMAcG2v81aaAr1ncc2ZtzCbU03jEXhreeUBizIMg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90cml2/ZW5pZ3JvdXAuaW4v/d3AtY29udGVudC91/cGxvYWRzLzIwMjYv/MDQvVW50aXRsZWQt/ZGVzaWduLnBuZw"
+                                alt="Quality Standards">
+                        </div>
+                        <div class="bl-pg-card-body">
+                            <span class="bl-pg-card-date">April 15, 2024</span>
+                            <h3 class="bl-pg-card-title">Ensuring 100% Quality in PET Preform Production</h3>
+                            <p class="bl-pg-card-text">Insights into our state-of-the-art testing laboratories and how
+                                we maintain the benchmark for multinational national corporations.</p>
+                            <a href="#" class="bl-pg-read-more">Read Full Article <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+         TRUEPET MODERN FOOTER
+         ========================================================================== -->
+        <footer class="tp-footer">
+            <div class="container">
+                <div class="row">
+                    <!-- Brand Section -->
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                        <div class="tp-footer-logo">
+                            <img src="assets/images/logo/logo.png" alt="Truepet Logo"
+                                onerror="this.src='https://placehold.co/180x60/273AE2/FFFFFF?text=TruePET'">
+                        </div>
+                        <p class="mb-4" style="color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.6;">
+                            India's premier manufacturer of high-quality PET Preforms, delivering technical precision
+                            and
+                            reliability to global industries.
+                        </p>
+                        <div class="tp-footer-socials">
+                            <a href="#" class="tp-footer-social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="tp-footer-social-btn"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="tp-footer-social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="tp-footer-social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+                        </div>
+                        <div class="tp-google-reviews">
+                            <span class="brand">Google Reviews</span>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span class="ms-2 text-white" style="font-size: 13px;">(4.9/5)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Section -->
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 ps-lg-5">
+                        <h4 class="tp-footer-heading">Our Products</h4>
+                        <ul class="tp-footer-links">
+                            <li><a href="27-mm-alaska.html"><i class="fa-solid fa-chevron-right"
+                                        style="font-size: 10px;"></i> 27 MM
+                                    ALASKA</a></li>
+                            <li><a href="26-22-gme-30-28-pet-perform.html"><i class="fa-solid fa-chevron-right"
+                                        style="font-size: 10px;"></i> 26/22 GME
+                                    30.28</a></li>
+                            <li><a href="26-22-gme-30-41-neck-pet-perform.html"><i class="fa-solid fa-chevron-right"
+                                        style="font-size: 10px;"></i> 26/22 GME
+                                    30.41</a></li>
+                            <li><a href="29-21-mm-ctc-neck-pet-preform.html"><i class="fa-solid fa-chevron-right"
+                                        style="font-size: 10px;"></i> 29/21 CTC</a>
+                            </li>
+                            <li><a href="28-mm-pco-1881-neck-pet-preform.html"><i class="fa-solid fa-chevron-right"
+                                        style="font-size: 10px;"></i> 28 MM PCO
+                                    1881</a></li>
+                            <li><a href="28-mm-pco-1810-long-neck-pet-preform.html"><i class="fa-solid fa-chevron-right"
+                                        style="font-size: 10px;"></i> 28 MM PCO
+                                    1810</a></li>
+                            <li><a href="48-mm-3-start-pet-jar-preform.html"><i class="fa-solid fa-chevron-right"
+                                        style="font-size: 10px;"></i> 48 MM 3
+                                    START</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Addresses Section -->
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                        <h4 class="tp-footer-heading">Our Presence</h4>
+                        <div class="tp-footer-contact-item">
+                            <div class="tp-footer-contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="tp-footer-contact-text">
+                                <h5>Corporate Office</h5>
+                                <p><strong>Unit 1 :</strong>True Pet industries Private Limited <br>
+                                    Survey no 376, plot no 2a, B-Building, <br>
+                                    Karwad, Vapi, Gujarat-296191</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact & Newsletter -->
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="tp-footer-heading">Contact Info</h4>
+                        <div class="tp-footer-contact-item">
+                            <div class="tp-footer-contact-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="tp-footer-contact-text">
+                                <h5>Phone Number</h5>
+                                <p>+917777800001</p>
+                            </div>
+                        </div>
+                        <div class="tp-footer-contact-item">
+                            <div class="tp-footer-contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="tp-footer-contact-text">
+                                <h5>Email Address</h5>
+                                <p>info@truepet.com</p>
+                            </div>
+                        </div>
+                        <div class="tp-footer-newsletter">
+                            <h5 class="mb-3" style="font-size: 16px; font-weight: 700;">Subscribe to Newsletter</h5>
+                            <form class="tp-newsletter-form">
+                                <input type="email" placeholder="Email address..." required>
+                                <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tp-footer-bottom">
+                    <p>&copy; 2026 Truepet Pvt. Ltd. All Rights Reserved. Promoted by <a href="#">Webads India</a></p>
+                </div>
+            </div>
+        </footer>
+
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <script>
+        const lenis = new Lenis({ duration: 1.2, smooth: true });
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('tp-header');
+            if (window.scrollY > 50) header.classList.add('tp-scrolled'); else header.classList.remove('tp-scrolled');
+        });
+
+        // GSAP Animations
+        gsap.fromTo(".tp-anim-item", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" });
+
+        gsap.fromTo(".bl-pg-reveal",
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, scrollTrigger: { trigger: ".bl-pg-intro", start: "top 85%" } }
+        );
+
+        gsap.fromTo(".bl-pg-card-anim",
+            { y: 60, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out", scrollTrigger: { trigger: ".bl-pg-grid", start: "top 85%" } }
+        );
+    </script>
+</body>
+
+</html>

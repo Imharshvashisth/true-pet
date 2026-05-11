@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Manufacturing | Truepet - Precision Engineering</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- TruePET Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* ==========================================================================
+           MANUFACTURING PAGE UNIQUE STYLES (mf-pg-)
+           (Navbar and Footer CSS strictly removed as per instructions)
+           ========================================================================== */
+
+        :root {
+            --tp-color-primary: #273AE2;
+            --tp-color-secondary: #FFFFFF;
+            --tp-color-dark: #0a0a0a;
+            --tp-font-heading: 'Inter', sans-serif;
+            --tp-font-body: 'Manrope', sans-serif;
+            --tp-transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--tp-font-body);
+            background-color: #fff;
+            color: #111;
+            overflow-x: hidden;
+        }
+
+        /* 1. Cinematic Centered Hero Section */
+        .mf-pg-hero {
+            height: 80vh;
+            background-color: #050505;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .mf-pg-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%), url('assets/images/banner/manufacture-ban.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: 1;
+        }
+
+        /* Scan-line pattern effect for high-end look */
+        .mf-pg-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 4px, 3px 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .mf-pg-hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .mf-pg-hero-tag {
+            font-family: var(--tp-font-heading);
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--tp-color-primary);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 25px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.97);
+            padding: 8px 20px;
+            border: 1px solid rgba(39, 58, 226, 0.2);
+        }
+
+        .mf-pg-hero-title {
+            font-family: var(--tp-font-heading);
+            font-size: 4.2rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin: 0;
+        }
+
+        .mf-pg-hero-title span {
+            color: var(--tp-color-primary);
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* 2. Centered Overview Section */
+        .mf-pg-overview {
+            padding: 60px 0;
+            background-color: #fff;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .mf-pg-ov-line {
+            width: 80px;
+            height: 4px;
+            background-color: var(--tp-color-primary);
+            margin: 0 auto 40px;
+            border-radius: 2px;
+        }
+
+        .mf-pg-ov-heading {
+            font-family: var(--tp-font-heading);
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: #111;
+            margin-bottom: 40px;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .mf-pg-ov-heading span {
+            color: var(--tp-color-primary);
+        }
+
+        .mf-pg-ov-text {
+            font-family: var(--tp-font-body);
+            font-size: 1.3rem;
+            color: #444;
+            line-height: 1.9;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        /* 3. Alternating Slide-in Sections */
+        .mf-pg-slide-section {
+            padding: 100px 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mf-pg-row {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .mf-pg-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .mf-pg-content-box {
+            flex: 1;
+        }
+
+        .mf-pg-image-box {
+            flex: 1;
+            position: relative;
+        }
+
+        .mf-pg-image-box img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
+        }
+
+        .mf-pg-number {
+            font-family: var(--tp-font-heading);
+            font-size: 100px;
+            font-weight: 900;
+            color: rgba(39, 58, 226, 0.05);
+            line-height: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .mf-pg-title {
+            font-family: var(--tp-font-heading);
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .mf-pg-desc {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        /* 4. Modern Sexy Tabs Section */
+        .mf-pg-tabs-wrap {
+            padding: 130px 0;
+            background-color: #0a0a0a;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mf-pg-tabs-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 60px;
+        }
+
+        .mf-pg-tabs-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            padding-left: 30px;
+        }
+
+        .mf-pg-tab-btn {
+            font-family: var(--tp-font-heading);
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #555;
+            cursor: pointer;
+            padding: 20px 0;
+            position: relative;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mf-pg-tab-btn span {
+            font-size: 10px;
+            margin-right: 15px;
+            opacity: 0.5;
+        }
+
+        .mf-pg-tab-btn.active {
+            color: #fff;
+        }
+
+        .mf-pg-tab-btn.active::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--tp-color-primary);
+            box-shadow: 0 0 20px var(--tp-color-primary);
+        }
+
+        .mf-pg-tab-content-area {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 60px;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+
+        .mf-pg-tab-pane {
+            display: none;
+        }
+
+        .mf-pg-tab-pane.active {
+            display: flex;
+            animation: tabReveal 0.8s forwards;
+            gap: 50px;
+            align-items: center;
+        }
+
+        @keyframes tabReveal {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .mf-pg-tab-text-box h3 {
+            font-family: var(--tp-font-heading);
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .mf-pg-tab-img {
+            flex: 0 0 45%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .mf-pg-tab-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+        }
+
+        .mf-pg-stat-val {
+            font-family: var(--tp-font-heading);
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--tp-color-primary);
+            display: block;
+        }
+
+        .mf-pg-stat-lab {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* 5. Specs Grid (Preserved Style) */
+        .mf-pg-specs {
+            padding: 130px 0;
+            background-color: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mf-pg-spec-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .mf-pg-spec-card {
+            padding: 50px 40px;
+            border: 1px solid #eee;
+            background: #fbfbfb;
+            transition: 0.4s;
+        }
+
+        .mf-pg-spec-card:hover {
+            border-color: var(--tp-color-primary);
+            background: #fff;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+        }
+
+        .mf-pg-spec-card i {
+            font-size: 35px;
+            color: var(--tp-color-primary);
+            margin-bottom: 25px;
+        }
+
+        .mf-pg-spec-card h4 {
+            font-family: var(--tp-font-heading);
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .mf-pg-spec-card p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 991px) {
+            .mf-pg-hero-title {
+                font-size: 2.8rem;
+            }
+
+            .mf-pg-ov-heading {
+                font-size: 2.2rem;
+            }
+
+            .mf-pg-row {
+                flex-direction: column;
+                gap: 50px;
+            }
+
+            .mf-pg-row.reverse {
+                flex-direction: column;
+            }
+
+            .mf-pg-tabs-container {
+                grid-template-columns: 1fr;
+            }
+
+            .mf-pg-tabs-nav {
+                flex-direction: row;
+                overflow-x: auto;
+                border-left: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding-bottom: 10px;
+                padding-left: 0;
+            }
+
+            .mf-pg-tab-btn.active::before {
+                left: 0;
+                top: auto;
+                bottom: -12px;
+                width: 100%;
+                height: 3px;
+            }
+
+            .mf-pg-tab-pane.active {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .mf-pg-spec-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HTML Structure -->
+    <div class="tp-fixed-contact">
+        <!-- Call Icon -->
+        <a href="tel:+917230099843" class="tp-fixed-item" data-tooltip="Call Now">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <!-- Mail Icon -->
+        <a href="mailto:info@truepet.com" class="tp-fixed-item tp-mail" data-tooltip="Send Email">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <!-- WhatsApp Icon -->
+        <a href="https://wa.me/917230099843" class="tp-fixed-item tp-wa" data-tooltip="WhatsApp Enquiry">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+
+
+
+
+
+    <!-- ==========================================================================
+         TRUEPET HEADER (NAVBAR)
+         ========================================================================== -->
+    <header class="tp-header" id="tp-header">
+        <div class="container-fluid px-4 px-lg-5">
+            <nav class="navbar navbar-expand-lg align-items-center">
+                <a class="navbar-brand tp-navbar-brand" href="index.html">
+                    <img src="assets/images/logo/logo.png" alt="Truepet Logo">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#tp-navbarNav"
+                    aria-controls="tp-navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="tp-navbarNav">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item"><a class="nav-link tp-nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link tp-nav-link" href="about-us.html">About</a></li>
+
+                        <li class="nav-item dropdown tp-dropdown">
+                            <a class="nav-link tp-nav-link dropdown-toggle" href="#products" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                            <ul class="dropdown-menu tp-dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="27-mm-alaska.html">27 MM ALASKA</a></li>
+                                <li><a class="dropdown-item" href="26-22-gme-30-28-pet-perform.html">26/22 GME 30.28</a>
+                                </li>
+                                <li><a class="dropdown-item" href="26-22-gme-30-41-neck-pet-perform.html">26/22 GME
+                                        30.41</a></li>
+                                <li><a class="dropdown-item" href="29-21-mm-ctc-neck-pet-preform.html">29/21 CTC</a>
+                                </li>
+                                <li><a class="dropdown-item" href="28-mm-pco-1881-neck-pet-preform.html">28 MM PCO
+                                        1881</a></li>
+                                <li><a class="dropdown-item" href="28-mm-pco-1810-long-neck-pet-preform.html">28 MM PCO
+                                        1810</a></li>
+                                <li><a class="dropdown-item" href="48-mm-3-start-pet-jar-preform.html">48 MM 3 START</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link tp-nav-link" href="manufacturing.html">Manufacturing</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link tp-nav-link" href="blogs.html">Blogs</a></li>
+                        <li class="nav-item"><a class="nav-link tp-nav-link" href="careers.html">Career</a></li>
+                        <li class="nav-item"><a class="nav-link tp-nav-link" href="contact-us.html">Contact Us</a></li>
+
+                        <li class="nav-item mt-3 mt-lg-0">
+                            <a href="contact-us.html" class="tp-btn-sexy tp-btn-nav-sexy">
+                                <span class="btn-text">Get a Quote</span>
+                                <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="tp-main-wrapper">
+
+        <!-- 1. Refined Sexy Hero Section (Centered & Cinematic) -->
+        <section class="mf-pg-hero">
+            <div class="mf-pg-hero-bg"></div>
+            <div class="mf-pg-hero-content">
+                <span class="mf-pg-hero-tag tp-anim-item">The Production Hub</span>
+                <h1 class="mf-pg-hero-title tp-anim-item">Technical <span>Manufacturing</span> Excellence</h1>
+            </div>
+        </section>
+
+        <!-- 2. Centered Content Overview Section (New & Improved) -->
+        <section class="mf-pg-overview">
+            <div class="container">
+                <div class="mf-pg-reveal">
+                    <div class="mf-pg-ov-line"></div>
+                    <h2 class="mf-pg-ov-heading">High-End Automation <br>For <span>Global Scalability.</span></h2>
+                    <p class="mf-pg-ov-text">TruePET operates one of India’s most technologically advanced and
+                        ultra-modern PET
+                        manufacturing facilities. Our production lines are equipped with fully automated robotic systems
+                        and
+                        real-time monitoring technology that continuously produces thousands of precision-engineered
+                        preforms
+                        every hour. Our focus is not only on production capacity, but also on delivering zero-defect
+                        quality
+                        that meets global industry standards.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Sliding Manufacturing Highlights (Zig-Zag GSAP) -->
+        <section class="mf-pg-slide-section">
+            <div class="container">
+
+                <!-- Slide 01 -->
+                <div class="mf-pg-row">
+                    <div class="mf-pg-content-box mf-pg-reveal-left">
+                        <div class="mf-pg-number">01</div>
+                        <h2 class="mf-pg-title">Smart <span>Injection <br>Centers</span></h2>
+                        <p class="mf-pg-desc">Our automated injection molding centers utilize high-precision heating
+                            systems
+                            that preserve raw material transparency and consistency. This ensures every PET preform
+                            delivers a
+                            crystal-clear finish with superior structural quality.</p>
+                        <div class="mt-4">
+                            <a href="#specs" class="tp-btn-sexy" style="border-color: #ddd; color: #111;">
+                                <span class="btn-text" style="color: #111;">Specs Grid</span>
+                                <span class="btn-icon"><i class="fa-solid fa-bolt"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mf-pg-image-box mf-pg-reveal-right">
+                        <img src="assets/images/manufacture/injection.jpeg" alt="Robotics">
+                    </div>
+                </div>
+
+                <!-- Slide 02 -->
+                <div class="mf-pg-row reverse" style="margin-top: 150px;">
+                    <div class="mf-pg-content-box mf-pg-reveal-right">
+                        <div class="mf-pg-number">02</div>
+                        <h2 class="mf-pg-title">Industrial <span>Quality <br>Scanning</span></h2>
+                        <p class="mf-pg-desc">Every production batch passes through laser-guided vision systems that
+                            inspect
+                            wall thickness variations with micron-level precision. TruePET’s advanced quality control
+                            protocols
+                            help maintain minimal rejection rates and consistent production standards.</p>
+                        <div class="mt-4">
+                            <a href="#lab" class="tp-btn-sexy" style="border-color: #ddd; color: #111;">
+                                <span class="btn-text" style="color: #111;">Lab Details</span>
+                                <span class="btn-icon"><i class="fa-solid fa-microscope"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mf-pg-image-box mf-pg-reveal-left">
+                        <img src="assets/images/manufacture/industrial-quality.jpeg" alt="Testing Lab">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. Modern Sexy Tabs Section (Technical Step Indicator) -->
+        <section class="mf-pg-tabs-wrap">
+            <div class="container">
+                <div class="mf-pg-tabs-container">
+
+                    <!-- Step Indicator Tabs -->
+                    <div class="mf-pg-tabs-nav">
+                        <div class="mf-pg-tab-btn active" data-tab="t-injection"><span>01</span> Melt & Mold</div>
+                        <div class="mf-pg-tab-btn" data-tab="t-stabilization"><span>02</span> Thermal Control</div>
+                        <div class="mf-pg-tab-btn" data-tab="t-quality"><span>03</span> AI Inspection</div>
+                        <div class="mf-pg-tab-btn" data-tab="t-dispatch"><span>04</span> Secure Logistics</div>
+                    </div>
+
+                    <!-- Content Window -->
+                    <div class="mf-pg-tab-content-area">
+
+                        <!-- Tab: Injection -->
+                        <div class="mf-pg-tab-pane active" id="t-injection">
+                            <div class="mf-pg-tab-text-box">
+                                <h3>High-Precision Molding</h3>
+                                <p class="mf-pg-desc" style="color: rgba(255,255,255,0.6);">
+                                    Raw PET resin is processed at precisely controlled temperatures of 280°C. Our
+                                    software-driven molding systems maximize both material clarity and structural
+                                    strength for
+                                    premium-quality preforms.
+                                </p>
+                                <div class="mf-pg-tab-stats">
+                                    <div>
+                                        <span class="mf-pg-stat-val">300ms</span>
+                                        <span class="mf-pg-stat-lab">Cycle Speed</span>
+                                    </div>
+                                    <div>
+                                        <span class="mf-pg-stat-val">144 Cavity</span>
+                                        <span class="mf-pg-stat-lab">Mold Density</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="https://imgs.search.brave.com/J07txx3HKCaT4iHA0MnXemN_xXX0UeSSoZZ3jHC-E1w/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zLmFs/aWNkbi5jb20vQHNj/MDQva2YvSGY2YjE1/ZjVmZmU2ZTQ2NzU4/ZjkyMTVmMDViMzIy/NDUyWi5qcGdfMzAw/eDMwMC5qcGc"
+                                class="mf-pg-tab-img" alt="Step 1">
+                        </div>
+
+                        <!-- Tab: Stabilization -->
+                        <div class="mf-pg-tab-pane" id="t-stabilization">
+                            <div class="mf-pg-tab-text-box">
+                                <h3>Cooling Dynamics</h3>
+                                <p class="mf-pg-desc" style="color: rgba(255,255,255,0.6);">
+                                    Preforms are transferred into controlled cooling chambers to stabilize their shape
+                                    and
+                                    eliminate microscopic stress cracks, ensuring long-term durability and performance.
+                                </p>
+                                <div class="mf-pg-tab-stats">
+                                    <div>
+                                        <span class="mf-pg-stat-val">22°C</span>
+                                        <span class="mf-pg-stat-lab">Set Temp</span>
+                                    </div>
+                                    <div>
+                                        <span class="mf-pg-stat-val">Robotic</span>
+                                        <span class="mf-pg-stat-lab">Extraction</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="https://imgs.search.brave.com/4ramwTEdvedQ7VqrhTtsb8cnZ64wxPXfYMv8m5cZi6o/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Y2hlbXRyZWF0LmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/NC8xMC9GaWd1cmUt/Ni4zMi1BaXItd2Fz/aGVyLWRpYWdyYW0u/d2VicA"
+                                class="mf-pg-tab-img" alt="Step 2">
+                        </div>
+
+                        <!-- Tab: Quality -->
+                        <div class="mf-pg-tab-pane" id="t-quality">
+                            <div class="mf-pg-tab-text-box">
+                                <h3>Vision System Scan</h3>
+                                <p class="mf-pg-desc" style="color: rgba(255,255,255,0.6);">
+                                    Automated sensors inspect every preform for weight accuracy, clarity, and
+                                    dimensional
+                                    consistency. Any defective unit is instantly isolated through robotic rejection
+                                    systems.
+                                </p>
+                                <div class="mf-pg-tab-stats">
+                                    <div>
+                                        <span class="mf-pg-stat-val">100%</span>
+                                        <span class="mf-pg-stat-lab">Scanning Rate</span>
+                                    </div>
+                                    <div>
+                                        <span class="mf-pg-stat-val">Laser</span>
+                                        <span class="mf-pg-stat-lab">Precision</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?q=80&w=1000"
+                                class="mf-pg-tab-img" alt="Step 3">
+                        </div>
+
+                        <!-- Tab: Dispatch -->
+                        <div class="mf-pg-tab-pane" id="t-dispatch">
+                            <div class="mf-pg-tab-text-box">
+                                <h3>Global Dispatch Hub</h3>
+                                <p class="mf-pg-desc" style="color: rgba(255,255,255,0.6);">
+                                    Products are hygienically packed in export-grade packaging and delivered safely
+                                    through our
+                                    efficient Pan-India and international logistics network with real-time shipment
+                                    tracking.
+                                </p>
+                                <div class="mf-pg-tab-stats">
+                                    <div>
+                                        <span class="mf-pg-stat-val">Dust-Free</span>
+                                        <span class="mf-pg-stat-lab">Environment</span>
+                                    </div>
+                                    <div>
+                                        <span class="mf-pg-stat-val">Real-time</span>
+                                        <span class="mf-pg-stat-lab">Tracking</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="https://imgs.search.brave.com/HzjA-tsiQDciQ-oKsVZW9AGTJJOccV5icp_JYm7ea6o/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9haWNz/LmluL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDI1LzEyL0ltYWdl/cy1haWNzMy0xMDI0/eDc2My5wbmc"
+                                class="mf-pg-tab-img" alt="Step 4">
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Specs Grid (Preserved Style) -->
+        <section class="mf-pg-specs">
+            <div class="container">
+                <div class="row align-items-end">
+                    <div class="col-lg-7">
+                        <span class="mf-pg-hero-tag">Core Value</span>
+                        <h2 class="mf-pg-ov-heading">Built For <span>Precision</span></h2>
+                    </div>
+                </div>
+
+                <div class="mf-pg-spec-grid">
+                    <div class="mf-pg-spec-card">
+                        <i class="fa-solid fa-microchip"></i>
+                        <h4>PLC Integration</h4>
+                        <p>Real-time manufacturing systems provide complete production transparency and continuous
+                            machine
+                            performance monitoring.</p>
+                    </div>
+
+                    <div class="mf-pg-spec-card">
+                        <i class="fa-solid fa-leaf"></i>
+                        <h4>Eco-Drive Technology</h4>
+                        <p>Energy-efficient machinery reduces industrial carbon footprint while maintaining maximum
+                            production
+                            output and operational efficiency.</p>
+                    </div>
+
+                    <div class="mf-pg-spec-card">
+                        <i class="fa-solid fa-robot"></i>
+                        <h4>Robotic Automation</h4>
+                        <p>End-to-end robotic systems minimize human contamination and maintain high-level hygiene and
+                            manufacturing consistency.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+         TRUEPET MODERN FOOTER
+         ========================================================================== -->
+        <footer class="tp-footer">
+            <div class="container">
+                <div class="row">
+                    <!-- Brand Section -->
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                        <div class="tp-footer-logo">
+                            <img src="assets/images/logo/logo.png" alt="Truepet Logo"
+                                onerror="this.src='https://placehold.co/180x60/273AE2/FFFFFF?text=TruePET'">
+                        </div>
+                        <p class="mb-4" style="color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.6;">
+                            India's premier manufacturer of high-quality PET Preforms, delivering technical precision
+                            and
+                            reliability to global industries.
+                        </p>
+                        <div class="tp-footer-socials">
+                            <a href="#" class="tp-footer-social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="tp-footer-social-btn"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="tp-footer-social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="tp-footer-social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+                        </div>
+                        <div class="tp-google-reviews">
+                            <span class="brand">Google Reviews</span>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span class="ms-2 text-white" style="font-size: 13px;">(4.9/5)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Section -->
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 ps-lg-5">
+                        <h4 class="tp-footer-heading">Our Products</h4>
+                        <ul class="tp-footer-links">
+                            <li><a href="27-mm-alaska.html"><i class="fa-solid fa-chevron-right"
+                                        style="font-size: 10px;"></i> 27 MM
+                                    ALASKA</a></li>
+                            <li><a href="26-22-gme-30-28-pet-perform.html"><i class="fa-solid fa-chevron-right"
+                                        style="font-size: 10px;"></i> 26/22 GME
+                                    30.28</a></li>
+                            <li><a href="26-22-gme-30-41-neck-pet-perform.html"><i class="fa-solid fa-chevron-right"
+                                        style="font-size: 10px;"></i> 26/22 GME
+                                    30.41</a></li>
+                            <li><a href="29-21-mm-ctc-neck-pet-preform.html"><i class="fa-solid fa-chevron-right"
+                                        style="font-size: 10px;"></i> 29/21 CTC</a>
+                            </li>
+                            <li><a href="28-mm-pco-1881-neck-pet-preform.html"><i class="fa-solid fa-chevron-right"
+                                        style="font-size: 10px;"></i> 28 MM PCO
+                                    1881</a></li>
+                            <li><a href="28-mm-pco-1810-long-neck-pet-preform.html"><i class="fa-solid fa-chevron-right"
+                                        style="font-size: 10px;"></i> 28 MM PCO
+                                    1810</a></li>
+                            <li><a href="48-mm-3-start-pet-jar-preform.html"><i class="fa-solid fa-chevron-right"
+                                        style="font-size: 10px;"></i> 48 MM 3
+                                    START</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Addresses Section -->
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                        <h4 class="tp-footer-heading">Our Presence</h4>
+                        <div class="tp-footer-contact-item">
+                            <div class="tp-footer-contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="tp-footer-contact-text">
+                                <h5>Corporate Office</h5>
+                                <p><strong>Unit 1 :</strong>True Pet industries Private Limited <br>
+                                    Survey no 376, plot no 2a, B-Building, <br>
+                                    Karwad, Vapi, Gujarat-296191</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact & Newsletter -->
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="tp-footer-heading">Contact Info</h4>
+                        <div class="tp-footer-contact-item">
+                            <div class="tp-footer-contact-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="tp-footer-contact-text">
+                                <h5>Phone Number</h5>
+                                <p>+917777800001</p>
+                            </div>
+                        </div>
+                        <div class="tp-footer-contact-item">
+                            <div class="tp-footer-contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="tp-footer-contact-text">
+                                <h5>Email Address</h5>
+                                <p>info@truepet.com</p>
+                            </div>
+                        </div>
+                        <div class="tp-footer-newsletter">
+                            <h5 class="mb-3" style="font-size: 16px; font-weight: 700;">Subscribe to Newsletter</h5>
+                            <form class="tp-newsletter-form">
+                                <input type="email" placeholder="Email address..." required>
+                                <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tp-footer-bottom">
+                    <p>&copy; 2026 Truepet Pvt. Ltd. All Rights Reserved. Promoted by <a href="#">Webads India</a></p>
+                </div>
+            </div>
+        </footer>
+
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <script>
+        const lenis = new Lenis({ duration: 1.2, smooth: true });
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('tp-header');
+            if (window.scrollY > 50) header.classList.add('tp-scrolled'); else header.classList.remove('tp-scrolled');
+        });
+
+        // GSAP Animations
+        gsap.fromTo(".tp-anim-item", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, stagger: 0.2, ease: "power4.out" });
+
+        gsap.fromTo(".mf-pg-reveal",
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, scrollTrigger: { trigger: ".mf-pg-overview", start: "top 85%" } }
+        );
+
+        gsap.fromTo(".mf-pg-reveal-left",
+            { x: -100, opacity: 0 },
+            { x: 0, opacity: 1, duration: 1.2, scrollTrigger: { trigger: ".mf-pg-slide-section", start: "top 80%" } }
+        );
+
+        gsap.fromTo(".mf-pg-reveal-right",
+            { x: 100, opacity: 0 },
+            { x: 0, opacity: 1, duration: 1.2, scrollTrigger: { trigger: ".mf-pg-slide-section", start: "top 80%" } }
+        );
+
+        gsap.fromTo(".mf-pg-reveal-up",
+            { y: 60, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out", scrollTrigger: { trigger: ".mf-pg-specs", start: "top 85%" } }
+        );
+
+        // Interactive Tabs Logic
+        const tabBtns = document.querySelectorAll('.mf-pg-tab-btn');
+        const tabPanes = document.querySelectorAll('.mf-pg-tab-pane');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-tab');
+
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabPanes.forEach(p => p.classList.remove('active'));
+
+                btn.classList.add('active');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
