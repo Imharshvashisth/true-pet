@@ -1,5 +1,5 @@
 /* ==========================================================================
-           TRUEPET GLOBAL CSS VARIABLES
+           TruPet GLOBAL CSS VARIABLES
            ========================================================================== */
 :root {
   --tp-color-primary: #273ae2;
@@ -155,7 +155,7 @@ a {
 }
 
 /* ==========================================================================
-           TRUEPET HEADER / NAVBAR (SOLID WHITE CORPORATE)
+           TruPet HEADER / NAVBAR (SOLID WHITE CORPORATE)
            ========================================================================== */
 .tp-header {
   position: fixed;
@@ -384,7 +384,7 @@ a {
 }
 
 /* ==========================================================================
-           TRUEPET HERO SECTION
+           TruPet HERO SECTION
            ========================================================================== */
 .tp-hero {
   position: relative;
@@ -607,7 +607,7 @@ a {
 }
 
 /* ==========================================================================
-           TRUEPET ABOUT US SECTION
+           TruPet ABOUT US SECTION
            ========================================================================== */
 .tp-about {
   position: relative;
@@ -772,7 +772,7 @@ a {
 }
 
 /* ==========================================================================
-           TRUEPET BENCHMARK SECTION
+           TruPet BENCHMARK SECTION
            ========================================================================== */
 .tp-benchmark {
   position: relative;
@@ -960,7 +960,7 @@ a {
 }
 
 /* ==========================================================================
-           TRUEPET ACHIEVEMENT / STATS SECTION (PERFECT 3-COLUMN REPLICA)
+           TruPet ACHIEVEMENT / STATS SECTION (PERFECT 3-COLUMN REPLICA)
            ========================================================================== */
 .tp-achievement {
   position: relative;
@@ -1086,7 +1086,7 @@ a {
 }
 
 /* ==========================================================================
-           TRUEPET PRODUCTS SECTION (SQUARE 8-CARDS GRID)
+           TruPet PRODUCTS SECTION (SQUARE 8-CARDS GRID)
            ========================================================================== */
 .tp-products {
   position: relative;
@@ -1278,7 +1278,7 @@ a {
 }
 
 /* ==========================================================================
-           TRUEPET TESTIMONIALS SECTION (AS PER REFERENCE image_a6ee9c.png)
+           TruPet TESTIMONIALS SECTION (AS PER REFERENCE image_a6ee9c.png)
            ========================================================================== */
 .tp-testimonials {
   position: relative;
@@ -1411,7 +1411,7 @@ a {
 }
 
 /* ==========================================================================
-           TRUEPET CTA BANNER SECTION (30VH, PARALLAX, SQUARE BUTTONS)
+           TruPet CTA BANNER SECTION (30VH, PARALLAX, SQUARE BUTTONS)
            ========================================================================== */
 .tp-cta-banner {
   position: relative;
@@ -1486,7 +1486,7 @@ a {
 }
 
 /* ==========================================================================
-           TRUEPET INFRASTRUCTURE / CAPABILITIES SECTION (BRAND NEW!)
+           TruPet INFRASTRUCTURE / CAPABILITIES SECTION (BRAND NEW!)
            ========================================================================== */
 .tp-infra {
   position: relative;
@@ -1602,7 +1602,7 @@ a {
 }
 
 /* ==========================================================================
-           TRUEPET MODERN FOOTER SECTION (NO SVG WAVE - IMG BASED)
+           TruPet MODERN FOOTER SECTION (NO SVG WAVE - IMG BASED)
            ========================================================================== */
 .tp-footer {
   position: relative;
