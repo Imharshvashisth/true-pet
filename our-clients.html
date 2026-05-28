@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs | Truepet - Industrial Insights & PET Trends</title>
+    <title>Our Clients | Truepet - Trusted by Industry Giants</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -21,10 +21,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         /* ==========================================================================
-           BLOG PAGE UNIQUE STYLES (bl-pg-)
-           (Navbar and Footer CSS removed as per instructions)
+           TRUEPET GLOBAL CSS VARIABLES (STRICTLY PRESERVED)
            ========================================================================== */
-
         :root {
             --tp-color-primary: #273AE2;
             --tp-color-secondary: #FFFFFF;
@@ -60,9 +58,19 @@
             overflow-x: hidden;
         }
 
-        /* 1. Sexy Blog Hero */
-        .bl-pg-hero {
-            height: 65vh;
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================================================
+           OUR CLIENTS PAGE UNIQUE STYLES (oc-pg-)
+           (Navbar and Footer CSS strictly removed as per instructions)
+           ========================================================================== */
+
+        /* 1. Sexy Hero Section */
+        .oc-pg-hero {
+            height: 55vh;
             background-color: #050505;
             position: relative;
             display: flex;
@@ -72,222 +80,293 @@
             text-align: center;
         }
 
-        .bl-pg-hero-bg {
+        .oc-pg-hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)), url('assets/images/banner/blog-ban.jpeg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             z-index: 1;
         }
 
-        .bl-pg-hero-content {
+        .oc-pg-hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
+            padding: 0 20px;
         }
 
-        .bl-pg-hero-tag {
+        .oc-pg-hero-tag {
             font-family: var(--tp-font-heading);
             font-size: 13px;
             font-weight: 800;
             color: var(--tp-color-primary);
             text-transform: uppercase;
             letter-spacing: 4px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             display: inline-block;
-            background: rgb(255, 255, 255);
+            background: rgba(39, 58, 226, 0.1);
             padding: 5px 15px;
             border-radius: 2px;
         }
 
-        .bl-pg-hero-title {
+        .oc-pg-hero-title {
             font-family: var(--tp-font-heading);
-            font-size: 3.8rem;
+            font-size: 4.5rem;
             font-weight: 900;
             color: #fff;
-            line-height: 1.1;
             text-transform: uppercase;
             margin: 0;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
         }
 
-        /* 2. Intro Section */
-        .bl-pg-intro {
-            padding: 100px 0 60px;
+        .oc-pg-hero-title span {
+            color: var(--tp-color-primary);
+        }
+
+        /* 2. Intro Statement Section (From Screenshot) */
+        .oc-pg-intro-section {
+            padding: 70px 0 30px;
             background-color: #ffffff;
             position: relative;
             z-index: 2;
+            text-align: center;
         }
 
-        .bl-pg-intro-subtitle {
+        .oc-pg-intro-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .oc-pg-section-heading {
             font-family: var(--tp-font-heading);
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--tp-color-primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
+            font-size: 29px;
+            font-weight: 800;
+            color: #111111df;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 0.5px;
+            margin-bottom: 25px;
+            line-height: 1.4;
         }
 
-        .bl-pg-intro-subtitle .line {
-            width: 40px;
-            height: 2px;
+        .oc-pg-intro-text {
+            font-family: var(--tp-font-body);
+            font-size: 17px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 50px;
+        }
+
+        .oc-pg-divider {
+            width: 100%;
+            height: 1px;
+            background-color: #eaeaea;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .oc-pg-divider::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
             background-color: var(--tp-color-primary);
         }
 
-        .bl-pg-intro-title {
+        /* 3. Logo Grid Section */
+        .oc-pg-grid-section {
+            padding: 60px 0 140px;
+            background-color: #ffffff;
+        }
+
+        .oc-pg-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 25px;
+        }
+
+        .oc-pg-logo-card {
+            background-color: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 4 / 3;
+            transition: all var(--tp-transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle modern background effect on hover */
+        .oc-pg-logo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(39, 58, 226, 0.03), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .oc-pg-logo-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(39, 58, 226, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06), 0 5px 15px rgba(39, 58, 226, 0.04);
+        }
+
+        .oc-pg-logo-card:hover::before {
+            opacity: 1;
+        }
+
+        .oc-pg-logo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .oc-pg-logo-card:hover img {
+            transform: scale(1.08);
+        }
+
+        /* 4. CTA Banner Overlay (Optional touch for flow) */
+        .oc-pg-cta {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .oc-pg-cta h3 {
             font-family: var(--tp-font-heading);
-            font-size: 3rem;
-            font-weight: 900;
-            color: #111;
-            line-height: 1.2;
+            font-size: 2rem;
+            font-weight: 800;
             margin-bottom: 25px;
         }
 
-        .bl-pg-intro-desc {
-            font-family: var(--tp-font-body);
-            font-size: 1.15rem;
-            color: #555;
-            max-width: 800px;
-            line-height: 1.7;
-        }
-
-        /* 3. Blog Cards Grid */
-        .bl-pg-grid-section {
-            padding: 0 0 130px;
-            background-color: #ffffff;
+        .tp-btn-sexy {
+            display: inline-flex;
+            align-items: stretch;
+            background: transparent;
+            border: 1px solid var(--tp-color-primary);
+            color: #111;
+            font-family: var(--tp-font-heading);
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             position: relative;
-            z-index: 2;
-        }
-
-        .bl-pg-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .bl-pg-card {
-            background-color: #fbfbfb;
-            border: 1px solid #eeeeee;
-            border-radius: 4px;
             overflow: hidden;
             transition: all var(--tp-transition-smooth);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .bl-pg-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--tp-color-primary);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
-        }
-
-        .bl-pg-card-img {
-            width: 100%;
-            height: 240px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .bl-pg-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-
-        .bl-pg-card-badge {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background-color: var(--tp-color-primary);
-            color: #fff;
-            padding: 5px 12px;
-            font-family: var(--tp-font-heading);
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 2;
-        }
-
-        .bl-pg-card-body {
-            padding: 35px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .bl-pg-card-date {
-            font-size: 13px;
-            font-weight: 600;
-            color: #888;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .bl-pg-card-title {
-            font-family: var(--tp-font-heading);
-            font-size: 20px;
-            font-weight: 800;
-            color: #111;
-            line-height: 1.4;
-            margin-bottom: 15px;
-            transition: color 0.3s ease;
-        }
-
-        .bl-pg-card-text {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .bl-pg-read-more {
-            margin-top: auto;
-            font-family: var(--tp-font-heading);
-            font-size: 13px;
-            font-weight: 800;
-            color: #111;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: gap 0.3s ease;
+            cursor: pointer;
             text-decoration: none;
         }
 
-        .bl-pg-card:hover .bl-pg-read-more {
-            color: var(--tp-color-primary);
-            gap: 15px;
+        .tp-btn-sexy:hover {
+            color: #ffffff !important;
+            box-shadow: 0 10px 30px rgba(39, 58, 226, 0.4);
+        }
+
+        .tp-btn-sexy .btn-text {
+            padding: 16px 28px;
+            position: relative;
+            z-index: 2;
+            transition: color var(--tp-transition-fast);
+        }
+
+        .tp-btn-sexy .btn-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            background-color: var(--tp-color-primary);
+            position: relative;
+            z-index: 2;
+            transition: all var(--tp-transition-smooth);
+        }
+
+        .tp-btn-sexy .btn-icon i {
+            transition: transform var(--tp-transition-fast);
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .tp-btn-sexy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: var(--tp-color-primary);
+            z-index: 1;
+            transition: width var(--tp-transition-smooth);
+        }
+
+        .tp-btn-sexy:hover::before {
+            width: 100%;
+        }
+
+        .tp-btn-sexy:hover .btn-icon i {
+            transform: translateX(6px);
+        }
+
+        @media (max-width: 1199px) {
+            .oc-pg-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
 
         @media (max-width: 991px) {
-            .bl-pg-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .oc-pg-hero-title {
+                font-size: 3rem;
             }
 
-            .bl-pg-hero-title {
-                font-size: 3rem;
+            .oc-pg-section-heading {
+                font-size: 22px;
+            }
+
+            .oc-pg-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+
+            .oc-pg-logo-card {
+                padding: 20px;
             }
         }
 
         @media (max-width: 767px) {
-            .bl-pg-grid {
+            .oc-pg-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .oc-pg-intro-section {
+                padding: 80px 0 40px;
+            }
+
+            .oc-pg-grid-section {
+                padding: 40px 0 80px;
+            }
+
+            .oc-pg-logo-card {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .oc-pg-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -296,32 +375,7 @@
 
 <body>
 
-    <!-- HTML Structure -->
-    <div class="tp-fixed-contact">
-        <!-- Call Icon -->
-        <a href="tel:+918888700001" class="tp-fixed-item" data-tooltip="Call Now">
-            <i class="fa-solid fa-phone"></i>
-        </a>
-
-        <!-- Mail Icon -->
-        <a href="mailto:info@truepet.com" class="tp-fixed-item tp-mail" data-tooltip="Send Email">
-            <i class="fa-solid fa-envelope"></i>
-        </a>
-
-        <!-- WhatsApp Icon -->
-        <a href="https://wa.me/918888700001" class="tp-fixed-item tp-wa" data-tooltip="WhatsApp Enquiry">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-    </div>
-
-
-
-
-
-
-    <!-- ==========================================================================
-         TRUEPET HEADER (NAVBAR)
-         ========================================================================== -->
+    <!-- Header Navbar (Preserved HTML structure only) -->
     <header class="tp-header" id="tp-header">
         <div class="container-fluid px-4 px-lg-5">
             <nav class="navbar navbar-expand-lg align-items-center">
@@ -376,90 +430,96 @@
 
     <main id="tp-main-wrapper">
 
-        <!-- 1. Sexy Blog Hero -->
-        <section class="bl-pg-hero">
-            <div class="bl-pg-hero-bg"></div>
-            <div class="bl-pg-hero-content">
-                <span class="bl-pg-hero-tag tp-anim-item">Latest Industrial News</span>
-                <h1 class="bl-pg-hero-title tp-anim-item">Industrial <span>Insights</span></h1>
+        <!-- 1. Sexy Hero Section -->
+        <section class="oc-pg-hero">
+            <div class="oc-pg-hero-bg"></div>
+            <div class="container-fluid oc-pg-hero-content">
+                <span class="oc-pg-hero-tag oc-pg-anim">Our Network</span>
+                <h1 class="oc-pg-hero-title oc-pg-anim">Trusted By <span>Giants</span></h1>
             </div>
         </section>
 
-        <!-- 2. Intro Section -->
-        <section class="bl-pg-intro">
+        <!-- 2. Intro Section (From Screenshot) -->
+        <section class="oc-pg-intro-section">
             <div class="container">
-                <div class="bl-pg-reveal">
-                    <div class="bl-pg-intro-subtitle"><span class="line"></span> OUR KNOWLEDGE HUB</div>
-                    <h2 class="bl-pg-intro-title">Expert Perspectives on <br><span>PET Manufacturing Trends</span></h2>
-                    <p class="bl-pg-intro-desc">Stay updated with the latest technological breakthroughs in blow
-                        molding, sustainable packaging solutions, and the future of industrial polymerization.</p>
+                <div class="oc-pg-intro-wrapper oc-pg-reveal-up">
+                    <h2 class="oc-pg-section-heading">BUILDING LASTING PARTNERSHIPS THROUGH CONTINUOUS <span
+                            style="color: var(--tp-color-primary);"> IMPROVEMENT AND
+                            VALUE </span></h2>
+                    <p class="oc-pg-intro-text">We are dedicated to continuous improvement, constantly refining our
+                        processes to ensure we deliver exceptional value to our customers. Our commitment goes beyond
+                        just providing quality products—we believe in building long-lasting business relationships based
+                        on trust, reliability, and mutual growth, ensuring our partners thrive alongside us.</p>
+                    <div class="oc-pg-divider"></div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. Blog Cards Grid (3 Cards) -->
-        <section class="bl-pg-grid-section">
+        <!-- 3. Logo Grid Section -->
+        <section class="oc-pg-grid-section">
             <div class="container">
-                <div class="bl-pg-grid">
+                <div class="oc-pg-grid">
 
-                    <!-- Blog Card 1 -->
-                    <article class="bl-pg-card bl-pg-card-anim">
-                        <div class="bl-pg-card-img">
-                            <div class="bl-pg-card-badge">Technology</div>
-                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000"
-                                alt="PET Automation">
-                        </div>
-                        <div class="bl-pg-card-body">
-                            <span class="bl-pg-card-date">May 10, 2024</span>
-                            <h3 class="bl-pg-card-title">The Future of Automated Blow Molding Systems</h3>
-                            <p class="bl-pg-card-text">Explaining how high-speed injection molding is revolutionizing
-                                the consistency and technical clarity of PET preforms for global beverage giants.</p>
-                            <a href="#" class="bl-pg-read-more">Read Full Article <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
+                    <!-- Client 1 -->
+                    <div class="oc-pg-logo-card oc-pg-reveal-up">
+                        <img src="assets/images/clients/1.jpeg" alt="Bisleri">
+                    </div>
+                    <!-- Client 2 -->
+                    <div class="oc-pg-logo-card oc-pg-reveal-up">
+                        <img src="assets/images/clients/2.jpeg" alt="Dabur">
+                    </div>
+                    <!-- Client 3 -->
+                    <div class="oc-pg-logo-card oc-pg-reveal-up">
+                        <img src="assets/images/clients/3.jpeg" alt="Nestle">
+                    </div>
+                    <!-- Client 4 -->
+                    <div class="oc-pg-logo-card oc-pg-reveal-up">
+                        <img src="assets/images/clients/4.jpeg" alt="Coca-Cola">
+                    </div>
+                    <!-- Client 5 -->
+                    <div class="oc-pg-logo-card oc-pg-reveal-up">
+                        <img src="assets/images/clients/5.jpeg" alt="Paper Boat">
+                    </div>
 
-                    <!-- Blog Card 2 -->
-                    <article class="bl-pg-card bl-pg-card-anim">
-                        <div class="bl-pg-card-img">
-                            <div class="bl-pg-card-badge">Sustainability</div>
-                            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=1000"
-                                alt="Eco Packaging">
-                        </div>
-                        <div class="bl-pg-card-body">
-                            <span class="bl-pg-card-date">April 28, 2024</span>
-                            <h3 class="bl-pg-card-title">Sustainable Packaging: A New Era for TruePET</h3>
-                            <p class="bl-pg-card-text">Exploring eco-friendly polymerization processes and water
-                                harvesting techniques that reduce industrial wastage while maintaining quality.</p>
-                            <a href="#" class="bl-pg-read-more">Read Full Article <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-
-                    <!-- Blog Card 3 -->
-                    <article class="bl-pg-card bl-pg-card-anim">
-                        <div class="bl-pg-card-img">
-                            <div class="bl-pg-card-badge">Industry</div>
-                            <img src="https://imgs.search.brave.com/lkOCMAcG2v81aaAr1ncc2ZtzCbU03jEXhreeUBizIMg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90cml2/ZW5pZ3JvdXAuaW4v/d3AtY29udGVudC91/cGxvYWRzLzIwMjYv/MDQvVW50aXRsZWQt/ZGVzaWduLnBuZw"
-                                alt="Quality Standards">
-                        </div>
-                        <div class="bl-pg-card-body">
-                            <span class="bl-pg-card-date">April 15, 2024</span>
-                            <h3 class="bl-pg-card-title">Ensuring 100% Quality in PET Preform Production</h3>
-                            <p class="bl-pg-card-text">Insights into our state-of-the-art testing laboratories and how
-                                we maintain the benchmark for multinational national corporations.</p>
-                            <a href="#" class="bl-pg-read-more">Read Full Article <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
+                    <!-- Client 6 -->
+                    <div class="oc-pg-logo-card oc-pg-reveal-up">
+                        <img src="assets/images/clients/6.jpeg" alt="Kingfisher">
+                    </div>
+                    <!-- Client 7 -->
+                    <div class="oc-pg-logo-card oc-pg-reveal-up">
+                        <img src="assets/images/clients/7.jpeg" alt="Pepsi">
+                    </div>
+                    <!-- Client 8 -->
+                    <div class="oc-pg-logo-card oc-pg-reveal-up">
+                        <img src="assets/images/clients/8.jpeg" alt="Haldiram's">
+                    </div>
+                    <!-- Client 9 -->
+                    <div class="oc-pg-logo-card oc-pg-reveal-up">
+                        <img src="assets/images/clients/9.jpeg" alt="Lays">
+                    </div>
+                    <!-- Client 10 -->
+                    <div class="oc-pg-logo-card oc-pg-reveal-up">
+                        <img src="assets/images/clients/10.jpeg" alt="Sprite">
+                    </div>
 
                 </div>
             </div>
         </section>
 
-        <!-- ==========================================================================
-         TRUEPET MODERN FOOTER
-         ========================================================================== -->
+        <!-- 4. CTA Banner -->
+        <section class="oc-pg-cta">
+            <div class="container">
+                <h3 class="oc-pg-anim">Join Our Network of Industry Leaders</h3>
+                <div class="mt-4 oc-pg-anim">
+                    <a href="contact.html" class="tp-btn-sexy">
+                        <span class="btn-text">Start A Partnership</span>
+                        <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer (Preserved HTML Structure only) -->
         <footer class="tp-footer">
             <div class="container">
                 <div class="row">
@@ -569,7 +629,6 @@
                 </div>
             </div>
         </footer>
-
     </main>
 
     <!-- Scripts -->
@@ -589,17 +648,20 @@
         });
 
         // GSAP Animations
-        gsap.fromTo(".tp-anim-item", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" });
+        gsap.fromTo(".oc-pg-anim", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" });
 
-        gsap.fromTo(".bl-pg-reveal",
+        gsap.fromTo(".oc-pg-reveal-up",
             { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1, scrollTrigger: { trigger: ".bl-pg-intro", start: "top 85%" } }
+            { y: 0, opacity: 1, duration: 1.2, stagger: 0.1, scrollTrigger: { trigger: ".oc-pg-intro-section", start: "top 85%" } }
         );
 
-        gsap.fromTo(".bl-pg-card-anim",
-            { y: 60, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out", scrollTrigger: { trigger: ".bl-pg-grid", start: "top 85%" } }
-        );
+        const logoCards = document.querySelectorAll('.oc-pg-logo-card');
+        logoCards.forEach((card, i) => {
+            gsap.fromTo(card,
+                { y: 60, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, delay: (i % 4) * 0.1, ease: "power3.out", scrollTrigger: { trigger: card, start: "top 90%" } }
+            );
+        });
     </script>
 </body>
 
