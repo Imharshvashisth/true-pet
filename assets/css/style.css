@@ -2124,4 +2124,9 @@ a {
   .tp-infra-title {
     font-size: 2.2rem;
   }
+
+  .tp-footer {
+    background: none;
+    background-color: #050505 !important;
+  }
 }
